@@ -1,0 +1,8 @@
+{
+  "microfrontend": {
+    "host": "http://localhost:3001"
+  },
+  "microfrontend2": {
+    "host": "http://localhost:3002"
+  }
+}
