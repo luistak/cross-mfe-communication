@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 
-// import worky from 'worky';
 const { worky } = window;
 
 function App() {
@@ -33,7 +32,6 @@ function App() {
       </div>
     </div>
   );
-
 }
 
 export default App;

@@ -9,9 +9,9 @@ export default function Microfrontend({ microfrontend }) {
     if (microfrontendRef.current) {
       microfrontend.view(microfrontendRef.current);
     }
-  }, [microfrontend, microfrontendRef.current])
+  }, [microfrontend, microfrontendRef])
 
-  useEffect(renderMicrofrontendView, [microfrontendRef.current])
+  useEffect(renderMicrofrontendView, [microfrontendRef])
 
   if (!microfrontendRef) {
     return null;

@@ -1,5 +1,7 @@
 import React from 'react';
 
+const { worky } = window;
+
 function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -7,7 +9,7 @@ function App() {
     const { target: form } = e;
     const input = form?.elements?.something;
     
-    window.worky.say(input.value);
+    worky.say(input.value);
     form.reset();
   }
 
