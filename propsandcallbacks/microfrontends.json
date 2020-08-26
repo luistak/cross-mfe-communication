@@ -1,0 +1,9 @@
+{
+  "microfrontends": {
+    "microfrontend": "packages/microfrontend",
+    "microfrontend2": "packages/microfrontend2"
+  },
+  "app": {
+    "webapp": "packages/webapp"
+  }
+}

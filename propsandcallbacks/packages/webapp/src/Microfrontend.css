@@ -1,0 +1,21 @@
+.Microfrontend {
+  width: 50%;
+  height: 100%;
+  position: relative;
+}
+
+.Microfrontend-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.Microfrontend-view {
+  position: relative;
+  flex-grow: 1;
+  overflow: overlay;
+}
