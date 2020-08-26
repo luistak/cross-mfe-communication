@@ -1,52 +1,30 @@
 import { withMicrofrontend } from 'react-microfrontend';
 
-import React, { useState, useRef } from 'react';
+import React from 'react';
+
+import Microfrontend from  './Microfrontend';
 
 import './App.css';
 
-const App = ({ microfrontends }) => {
-  const mfRef = useRef();
-  const [selectedMicrofrontendKey, setSelectedMicrofrontendKey] = useState(undefined);
-
-  const MicrofrontendApi = selectedMicrofrontendKey
-    ? microfrontends[selectedMicrofrontendKey]
-    : Object.values(microfrontends)[0];
-
-  if (mfRef.current) {
-    MicrofrontendApi.view(mfRef.current);
-  }
-
-  return (
-    <div className="App">
-      <p className="App__header">
-        Welcome to Microfrontend World.
-        <br />
-        Choose a microfrontend to show:
-      </p>
-      <div className="App__menu">
+const App = ({ microfrontends }) => (
+  <main className="App">
+    <div className="App__header">
+      <h1>⚔️ Cross microfrontend communication 📦</h1>
+      <p>Workerized example</p>
+    </div>
+    <div className="App__content">
+      <div className="App__content-container">
         {
           Object.keys(microfrontends).map(microfrontend => (
-            <button
-              onClick={() => setSelectedMicrofrontendKey(microfrontend)}
+            <Microfrontend
               key={microfrontend}
-              className={`App__menu-item${microfrontend === selectedMicrofrontendKey ? ' App__menu-item--selected' : ''}`}
-            >
-              {microfrontend}
-            </button>
+              microfrontend={microfrontends[microfrontend]}
+            />
           ))
         }
       </div>
-      <div className="App__content">
-        <div className="App__microfrontend-content" ref={mfRef} />
-        {/* {
-          MicrofrontendComponent && (
-            <div className="App__microfrontend-content">
-              <MicrofrontendComponent.view />
-            </div>
-          )
-        } */}
-      </div>
     </div>
-  );
-};
+  </main>
+);
+
 export default withMicrofrontend(App);

@@ -14,6 +14,17 @@
   padding: 16px;
   line-height: 32px;
   margin: 0;
+
+  border-bottom: 1px solid white;
+}
+
+.App__header h1 {
+  font-size: 1.75rem;
+  margin: 0;
+}
+.App__header p {
+  font-size: 1.25rem;
+  margin: 0;
 }
 
 .App__menu {
@@ -33,23 +44,14 @@
   cursor: pointer;
 }
 
-.App__menu-item:not(:last-child) {
-  border-left: #575f6d;
-}
-
-.App__menu-item:hover {
-  background-color: #2c3340;
-}
-
-.App__menu-item--selected {
-  background-color: #242b38;
-}
-
-.App__menu-item--selected:hover {
-  background-color: #242b38;
-}
-
 .App__content {
+  height: calc(100% - 100px);
+}
+
+.App__content-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
   display: flex;
 }
 

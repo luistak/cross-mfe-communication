@@ -5,14 +5,7 @@ import App from './App';
 import { ImportMicrofrontend } from 'react-microfrontend';
 import worky from 'worky';
 
-function bli() {
-	worky.say(123);
-};
-
 window.worky = worky;
-window.bli = bli;
-
-window.__shared__.ContainerReact = React;
 
 ReactDOM.render((
 	<ImportMicrofrontend>

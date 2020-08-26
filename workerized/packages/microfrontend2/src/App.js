@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
 function App() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const { target: form } = e;
+    const input = form?.elements?.something;
+    
+    window.worky.say(input.value);
+    form.reset();
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="MF">
+      <h3>Microfrontend 2️⃣</h3>
+      <p>⌨️ Use this form to communicate with the other microfrontend</p>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="something" placeholder="Type something in here"/>
+        <button type="submit">Communicate!</button>
+      </form>
     </div>
   );
 }

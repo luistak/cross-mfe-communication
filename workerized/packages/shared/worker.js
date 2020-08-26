@@ -1,9 +1,9 @@
 let said = [];
 
-export function say(something) {
-  console.log({ something, said });
+export function say(message) {
+  console.log({ message, said });
 
-  said.push(something)
+  said.push(message)
 
-  postMessage(something);
+  postMessage(message);
 }

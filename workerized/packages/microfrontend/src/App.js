@@ -1,38 +1,39 @@
-import React, { useEffect, useState, Component } from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState, useCallback } from 'react';
 import './App.css';
 
-window.addEventListener('something', (data) => {
-  console.log({ data });
-})
+// import worky from 'worky';
+const { worky } = window;
 
-class App extends Component {
-  state = {
-    messages: []
-  };
+function App() {
+  const [messages, setMessages] = useState([]);
 
-  componentDidMount() { 
-    window.worky.addEventListener('message', (message) => {
-      if (message.data.type) {
-        return;
-      }
+  const memoizedCallback = useCallback((message) => {
+    if (message.data.type) {
+      return;
+    }
 
-      const newMessages = this.state.messages.concat(message.data);
+    setMessages((currentMessages) => currentMessages.concat(message.data));
+  }, [])
 
-      this.setState({ messages: newMessages });
-    });
-  }
+  useEffect(() => {  
+    worky.addEventListener('message', memoizedCallback);
 
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          {this.state.messages.map((something, i) => <p key={something + i}>{something}</p>)}
-        </header>
+    return () => {
+      worky.removeEventListener(('message', memoizedCallback))
+    }
+  }, [memoizedCallback]);
+
+
+  return (
+    <div className="MF">
+      <h3>Microfrontend 1️⃣</h3>
+      <p>New messages will be displayed below 👇</p>
+      <div className="MF__messages">
+        {messages.map((something, i) => <p key={something + i}>{something}</p>)}
       </div>
-    );
-  }
+    </div>
+  );
+
 }
 
 export default App;

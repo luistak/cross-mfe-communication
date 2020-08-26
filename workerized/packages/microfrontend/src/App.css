@@ -1,20 +1,6 @@
-.App {
+.MF {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  background-color: #2d2d2d;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,15 +10,14 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.MF form {
+  display: flex;
+  flex-direction: column;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.MF__messages p {
+  margin: 8px;
+  padding: 4px 8px;
+  border: dashed 2px #544f4f;
+  font-size: 1.25rem;
 }
