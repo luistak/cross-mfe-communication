@@ -17,7 +17,7 @@ const App = ({ microfrontends }) => {
     <main className="App">
       <div className="App__header">
         <h1>⚔️ Cross microfrontend communication 📦</h1>
-        <p>Workerized example</p>
+        <p>Props and Callbacks example</p>
       </div>
       <div className="App__content">
         <div className="App__content-container">
