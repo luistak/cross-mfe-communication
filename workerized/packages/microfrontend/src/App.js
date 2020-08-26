@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
 // import worky from 'worky';
@@ -7,21 +7,21 @@ const { worky } = window;
 function App() {
   const [messages, setMessages] = useState([]);
 
-  const memoizedCallback = useCallback((message) => {
+  const handleNewMessage = (message) => {
     if (message.data.type) {
       return;
     }
 
     setMessages((currentMessages) => currentMessages.concat(message.data));
-  }, [])
+  };
 
   useEffect(() => {  
-    worky.addEventListener('message', memoizedCallback);
+    worky.addEventListener('message', handleNewMessage);
 
     return () => {
-      worky.removeEventListener(('message', memoizedCallback))
+      worky.removeEventListener('message', handleNewMessage)
     }
-  }, [memoizedCallback]);
+  }, [handleNewMessage]);
 
 
   return (
