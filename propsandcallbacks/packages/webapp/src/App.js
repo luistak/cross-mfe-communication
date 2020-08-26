@@ -1,7 +1,7 @@
+/* eslint-disable */
 import { withMicrofrontend } from 'react-microfrontend';
 
 import React, { useState } from 'react';
-
 import Microfrontend from  './Microfrontend';
 
 import './App.css';

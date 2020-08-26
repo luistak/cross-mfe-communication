@@ -8,7 +8,8 @@ function App({ onNewMessage }) {
     const { target: form } = e;
     const input = form?.elements?.something;
     
-    onNewMessage(input.value);
+    const customEvent = new CustomEvent('message', { detail: input.value });
+    window.dispatchEvent(customEvent)
     form.reset();
   }
 

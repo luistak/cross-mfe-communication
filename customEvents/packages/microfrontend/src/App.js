@@ -2,27 +2,20 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 
-const { worky } = window;
-
 function App() {
   const [messages, setMessages] = useState([]);
 
-  const handleNewMessage = (message) => {
-    if (message.data.type) {
-      return;
-    }
-
-    setMessages((currentMessages) => currentMessages.concat(message.data));
+  const handleNewMessage = (event) => {
+    setMessages((currentMessages) => currentMessages.concat(event.detail));
   };
 
   useEffect(() => {  
-    worky.addEventListener('message', handleNewMessage);
+    window.addEventListener('message', handleNewMessage);
 
     return () => {
-      worky.removeEventListener('message', handleNewMessage)
+      window.removeEventListener('message', handleNewMessage)
     }
   }, [handleNewMessage]);
-
 
   return (
     <div className="MF">
