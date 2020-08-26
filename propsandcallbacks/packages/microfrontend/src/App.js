@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+/* eslint-disable */
+import React from 'react';
 import './App.css';
 
 function App({ messages = [] }) {

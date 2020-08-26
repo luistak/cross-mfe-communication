@@ -5,8 +5,6 @@ import './Microfrontend.css';
 export default function Microfrontend({ microfrontend, customProps }) {
   const microfrontendRef = useRef();
 
-  console.log({ CYPY: customProps });
-
   const renderMicrofrontendView = useCallback(() => {
     if (microfrontendRef.current) {
       microfrontend.view(microfrontendRef.current, customProps);

@@ -7,7 +7,6 @@ import App  from './App';
 ExportMicrofrontend({
   name: 'microfrontend',
   view: function renderMicrofrontend(container, customProps = {}) {
-    console.log({ customProps })
     ReactDOM.render(<App {...customProps} />, container);
   }
 });
