@@ -163,8 +163,6 @@ function App() {
 }
 ```
 
-You can dive deep into this example in [this repository](https://github.com/luistak/cross-mfe-communication/tree/master/workerized).
-
 #### Pros ✅
  - According to [MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) *The advantage of this is that laborious processing can be performed in a separate thread, allowing the main (usually the UI) thread to run without being blocked/slowed down.*
 
@@ -251,8 +249,6 @@ function App({ onNewMessage }) {
 }
 ```
 
-You can dive deep into this example in [this repository](https://github.com/luistak/cross-mfe-communication/tree/master/propsandcallbacks).
-
 #### Pros ✅
  - Simple api
  - Simple setup
@@ -306,8 +302,6 @@ function App({ onNewMessage }) {
 }
 ```
 
-You can dive deep into this example in [this repository](https://github.com/luistak/cross-mfe-communication/tree/master/customEvents).
-
 #### Pros ✅
  - Simple Setup
  - Customizable
@@ -354,6 +348,7 @@ Using `windowed-observable` on the same app example:
 
 #### Microfrontend 1️⃣
 ```jsx
+import { Observable } from 'windowed-observable';
 
 const observable = new Observable('messages');
 
@@ -378,6 +373,10 @@ function App() {
 
 #### Microfrontend 2️⃣
 ```jsx
+import { Observable } from 'windowed-observable';
+
+const observable = new Observable('messages');
+
 function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -391,8 +390,6 @@ function App() {
   ...
 }
 ```
-
-You can dive deep in those examples in [this repository](https://github.com/luistak/windowed-observable).
 
 Feel free to take a look and also use it ❤️
 - [windowed-observable](https://github.com/luistak/windowed-observable)
@@ -412,5 +409,7 @@ After all of these examples you could also merge some of them and create your cu
 
 ## Conclusion
 There is no perfect or best solution, my suggestion is to [avoid hasty abstractions](https://kentcdodds.com/blog/aha-programming/) and tries to use the simplest solution like props and callbacks if it does not suit to your needs try the other one until it feels good!
+
+You can dive deep in those examples in [this repository](https://github.com/luistak/cross-mfe-communication).
 
 Comment below which one you prefer and why 🚀
