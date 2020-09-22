@@ -8,7 +8,7 @@
 
 <hr />
 
-This respository contains 4 microfrontend communication examples used in [this article](https://dev.to/luistak/cross-micro-frontends-communication-4ien-temp-slug-1686000?preview=50923de59691e072922b4440ddf00ea275f8a90ed3fccfa4b66f8bad957c45c03299091fcc52c8d67a2.83105459e099128eee5f16b8159334bfb4dbf)
+This respository contains 4 microfrontend communication examples used in [this article](https://dev.to/luistak/cross-micro-frontends-communication-4ien-temp-slug-1686000?preview=50923de59691e072922b4440ddf00ea275f8a90ed3fccfa4b66f8bad957c45c03299091fcc52c8d67a283105459e099128eee5f16b8159334bfb4dbf)
 
 ## Examples :file_folder:
  - [Custom events](./examples/customEvents)
