@@ -10,4 +10,3 @@ ExportMicrofrontend({
     ReactDOM.render(<App {...customProps} />, container);
   }
 });
-  

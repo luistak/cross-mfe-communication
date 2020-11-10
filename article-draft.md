@@ -5,14 +5,14 @@ If you are not familiar with the `micro frontends` concept and architectures I s
 - https://micro-frontends.org
 - https://martinfowler.com/articles/micro-frontends.html
 
-There are several reasons for choosing a micro frontend architecture maybe your app has grown too much and there are so many teams coding on the same repo/codebase but one of the most common use cases is the decoupled logic of a certain domain of an App.
+There are several reasons for choosing a micro frontend architecture, maybe your app has grown too much, or there are too many teams coding on the same codebase, but one of the most common reasons I've seen around is the need for implementing a decoupled logic for a certain domain of an app.
 
-Following this logic, _a good architecture is one in which micro frontends are decoupled and do not need to frequently communicate_ but there are some things that micro frontends might share or communicate like functions, components, some logic or state.
+Following this logic, _a good architecture is one in which micro frontends are decoupled, and do not need to frequently communicate_ but there are some things that micro frontends might share or communicate like functions, components, some logic or states.
 
 ### Sharing code
 ![Draw of a package](https://res.cloudinary.com/daiqkausy/image/upload/v1598440578/packages.png)
 
-For functions, components and common logics could be placed on a third package and imported on each app.
+Functions, components and common logics could be placed on a third package and imported on each app.
 
 And for creating a package there are several approaches I won't dive deep on it, but I'll leave you some examples:
 - [Creating a simple typescript library](https://www.tsmean.com/articles/how-to-write-a-typescript-library/)
@@ -124,13 +124,7 @@ function App() {
   }, [handleNewMessage]);
 
   return (
-    <div className="MF">
-      <h3>Microfrontend 1️⃣</h3>
-      <p>New messages will be displayed below 👇</p>
-      <div className="MF__messages">
-        {messages.map((something, i) => <p key={something + i}>{something}</p>)}
-      </div>
-    </div>
+    ... // Rendering
   );
 }
 ```
@@ -255,7 +249,7 @@ function App({ onNewMessage }) {
  - Customizable
 
 #### Cons ❌
- - Difficult to set up when there are multiple frameworks(Vue, angular, react, svelte)
+ - Difficult to set up when using multiple frameworks(Vue, angular, react, svelte)
  - Whenever a property changes the whole micro frontend will be rerendered
 
 ### Custom Events <a name="custom-events"></a>
@@ -310,6 +304,7 @@ function App({ onNewMessage }) {
 
 #### Cons ❌
  - Verbose custom events api
+ - Security🔒: too much accessible, every developer could track or use those events to mess up with your code
 
 ### Windowed observable <a name="windowed-observable"></a>
 
@@ -342,7 +337,7 @@ const observable = new Observable('cart-items');
 observable.publish({ id: 1234, name: 'Mouse Gamer XyZ', quantity: 1 });
 ```
 
-In this library there are more features like retrieving the latest event published, getting a list with every event, clearing every event, and more!
+In [this library](https://github.com/luistak/windowed-observable) there are more features like retrieving the latest event published, getting a list with every event, clearing every event, and more!
 
 Using `windowed-observable` on the same app example:
 
@@ -403,13 +398,10 @@ Feel free to take a look and also use it ❤️
  - Extra features to retrieve dispatched events
  - Open source ❤️
 
-### Custom implementation <a name="custom-implementation"></a>
+### Custom implementation :poin <a name="custom-implementation"></a>
+After all of these examples you could also merge some of them and create your custom implementation, using **your abstractions** encapsulating your app needs, but these options could be tricky and **easy to mess up**.
 
-After all of these examples you could also merge some of them and create your custom implementation, using **your abstractions** encapsulating your app needs, but these options could be tricky and easy to mess up.
+## Conclusion 🚀
+There is no perfect or best solution, my suggestion is to [avoid hasty abstractions](https://kentcdodds.com/blog/aha-programming/) and tries to use the simplest solution like props and callbacks, if it does not suit to your needs, try the other one until it feels good!
 
-## Conclusion
-There is no perfect or best solution, my suggestion is to [avoid hasty abstractions](https://kentcdodds.com/blog/aha-programming/) and tries to use the simplest solution like props and callbacks if it does not suit to your needs try the other one until it feels good!
-
-You can dive deep in those examples in [this repository](https://github.com/luistak/cross-mfe-communication).
-
-Comment below which one you prefer and why 🚀
+You can dive deep in all of those examples in [this repository](https://github.com/luistak/cross-mfe-communication) on github and also feel free comment below which one you prefer and why 🚀

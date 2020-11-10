@@ -5,17 +5,17 @@ import './App.css';
 function App() {
   const [messages, setMessages] = useState([]);
 
-  const handleNewMessage = (event) => {
-    setMessages((currentMessages) => currentMessages.concat(event.detail));
-  };
-
   useEffect(() => {  
+    const handleNewMessage = (event) => {
+      setMessages((currentMessages) => currentMessages.concat(event.detail));
+    };
+
     window.addEventListener('message', handleNewMessage);
 
     return () => {
       window.removeEventListener('message', handleNewMessage)
     }
-  }, [handleNewMessage]);
+  }, []);
 
   return (
     <div className="MF">
